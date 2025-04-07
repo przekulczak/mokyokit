@@ -1,0 +1,11 @@
+# Ignore artifacts
+dist
+build
+coverage
+
+# Dependency directories
+node_modules
+
+# Misc
+.cache
+.DS_Store
