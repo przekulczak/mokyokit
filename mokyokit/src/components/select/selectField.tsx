@@ -6,10 +6,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { SelectValueType } from '../cron-modal/types';
+import { SelectValueType } from '../../types/types';
 import { ControllerRenderProps } from 'node_modules/react-hook-form/dist/types/controller';
 import { DeleteButton } from './deleteButton';
-import { Error } from '../cron-modal/errors';
+import { Error } from '../form/form-error/errors';
 import { useError } from './useError';
 
 interface SelectFieldProps {

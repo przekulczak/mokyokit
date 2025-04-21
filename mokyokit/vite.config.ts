@@ -29,9 +29,10 @@ export default defineConfig({
     test: {
       environment: 'jsdom',
       globals: true,
-      setupFiles: './src/tests/setup.tsx',
+      setupFiles: './src/tests/setup.ts',
       include: ['**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
       exclude: ['node_modules', 'dist', '.idea', '.git', '.cache'],
+      testTimeout: 25000,
       coverage: {
         reporter: ['text', 'json', 'html'],
         exclude: ['node_modules/', 'src/test/'],

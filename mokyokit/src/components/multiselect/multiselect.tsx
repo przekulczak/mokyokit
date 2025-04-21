@@ -17,7 +17,7 @@ import {
   CommandSeparator,
 } from '@/components/ui/command';
 import { useFormContext } from 'react-hook-form';
-import { Error } from '../cron-modal/errors';
+import { Error } from '../form/form-error/errors';
 
 /**
  * Variants for the multi-select component to handle different styles.
@@ -87,7 +87,7 @@ interface MultiSelectProps
 
   /**
    * Maximum number of items to display. Extra selected items will be summarized.
-   * Optional, defaults to 3.
+   * Optional, defaults to 5.
    */
   maxCount?: number;
 
@@ -123,7 +123,7 @@ export const MultiSelect = React.forwardRef<HTMLButtonElement, MultiSelectProps>
       defaultValue = [],
       placeholder = '',
       animation = 0,
-      maxCount = 30,
+      maxCount = 5,
       modalPopover = false,
       asChild = false,
       className,
@@ -226,7 +226,7 @@ export const MultiSelect = React.forwardRef<HTMLButtonElement, MultiSelectProps>
           onOpenChange={disabled ? undefined : setIsPopoverOpen}
           modal={modalPopover}
         >
-          <PopoverTrigger asChild>
+          <PopoverTrigger asChild name={name}>
             <Button
               ref={(node) => {
                 if (typeof ref === 'function') {
@@ -262,15 +262,6 @@ export const MultiSelect = React.forwardRef<HTMLButtonElement, MultiSelectProps>
                         >
                           {IconComponent && <IconComponent className='h-4 w-4 mr-2' />}
                           {option?.label}
-                          {value !== '' && (
-                            <XCircle
-                              className='ml-2 h-4 w-4 cursor-pointer'
-                              onClick={(event) => {
-                                event.stopPropagation();
-                                toggleOption(value);
-                              }}
-                            />
-                          )}
                         </Badge>
                       );
                     })}
@@ -285,15 +276,6 @@ export const MultiSelect = React.forwardRef<HTMLButtonElement, MultiSelectProps>
                         style={{ animationDuration: `${animation}s` }}
                       >
                         {`+ ${selectedValues.length - maxCount} more`}
-                        {!disabled && (
-                          <XCircle
-                            className='ml-2 h-4 w-4 cursor-pointer'
-                            onClick={(event) => {
-                              event.stopPropagation();
-                              clearExtraOptions();
-                            }}
-                          />
-                        )}
                       </Badge>
                     )}
                   </div>

@@ -1,4 +1,4 @@
-import { OrnamentSecondary } from '../ornamentSecondary';
+import { OrnamentSecondary } from '../ornaments/secondary';
 
 interface Props {
   text: string;

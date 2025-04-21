@@ -1,13 +1,13 @@
-import { ButtonPrimary } from '@/components/buttonPrimary';
-import { ButtonSecondary } from '@/components/buttonSecondary';
-import { CronModal } from '@/components/cron-modal/cron-modal';
+import { ButtonPrimary } from '@/components/buttons/primary';
+import { ButtonSecondary } from '@/components/buttons/secondary';
+import { CronDetailsModal } from '@/modals/cron-modal/cron-modal';
 import { Section } from '@/components/section/section';
 import { SectionHeader } from '@/components/ui/modal-header';
 import CronForm from '@/forms/cron';
 import { Separator } from '@/components/ui/separator';
 import { createFileRoute } from '@tanstack/react-router';
 import { XIcon, Plus } from 'lucide-react';
-import { MainHeader } from '@/components/mainHeader/mainHeader';
+import { MainHeader } from '@/components/main-header/main-header';
 import { useCronForm } from '@/forms/cron/useCronForm';
 
 export const Route = createFileRoute('/')({
@@ -29,7 +29,7 @@ export function Index() {
         </div>
         <Separator className='mb-[24px]' />
         <CronForm handleSubmit={handleSubmit} methods={methods} control={control} />
-        <CronModal setValue={setValue} />
+        <CronDetailsModal setValue={setValue} />
       </Section>
     </div>
   );
